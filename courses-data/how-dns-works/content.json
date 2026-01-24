@@ -1,0 +1,166 @@
+{
+    "steps" : [
+        {
+            "title" : "How DNS Resolution Works.",
+            "diagramState" : "start",
+            "focus" : "You"
+        }
+        ,
+        {
+            "title" : "You open a web browser on your computer.",
+            "diagramState" : "browser",
+            "focus" : ["Web Browser", "Laptop"],
+            "focusPath" : ["You", "Web Browser", "Laptop"]
+        }
+
+        ,
+        {
+            "title" : "You type a website address like example.com into the browser.",
+            "diagramState" : "type-url",
+            "focus" : "example.com"
+        }
+
+        ,
+        {
+            "title" : "But computers don't understand domain names. They need IP addresses - numbers like 93.184.216.34.",
+            "diagramState" : "type-url",
+            "focus" : "example.com"
+        }
+
+        ,
+        {
+            "title" : "DNS (Domain Name System) translates domain names to IP addresses. It's like a phonebook for the Internet.",
+            "diagramState" : "type-url",
+            "focus" : ["Web Browser", "example.com"]
+        }
+
+        ,
+        {
+            "title" : "Your computer sends the domain name to a DNS Resolver. This is usually provided by your Internet Service Provider (ISP).",
+            "diagramState" : "dns-resolver",
+            "focus" : "DNS Resolver",
+            "focusPath" : ["Laptop", "Internet", "DNS Resolver"]
+        }
+
+        ,
+        {
+            "title" : "The DNS Resolver doesn't know every website. It needs to ask other servers.",
+            "diagramState" : "dns-resolver",
+            "focus" : "DNS Resolver"
+        }
+
+        ,
+        {
+            "title" : "First, it asks a Root Server. There are 13 root server clusters worldwide that know where to find everything.",
+            "diagramState" : "root-server",
+            "focus" : "Root Server",
+            "focusPath" : ["DNS Resolver", "Root Server"]
+        }
+
+        ,
+        {
+            "title" : "The Root Server doesn't know the exact IP. But it knows who handles .com domains.",
+            "diagramState" : "root-server",
+            "focus" : "Root Server"
+        }
+
+        ,
+        {
+            "title" : "The Root Server directs the resolver to a TLD (Top-Level Domain) Server that handles .com addresses.",
+            "diagramState" : "tld-server",
+            "focus" : "TLD Server",
+            "focusPath" : ["Root Server", "TLD Server"]
+        }
+
+        ,
+        {
+            "title" : "The .com TLD Server knows which server is authoritative for example.com.",
+            "diagramState" : "tld-server",
+            "focus" : "TLD Server"
+        }
+
+        ,
+        {
+            "title" : "The TLD Server points to the Authoritative Name Server for example.com.",
+            "diagramState" : "auth-server",
+            "focus" : "Auth Server",
+            "focusPath" : ["TLD Server", "Auth Server"]
+        }
+
+        ,
+        {
+            "title" : "The Authoritative Server has the actual DNS records for example.com.",
+            "diagramState" : "auth-server",
+            "focus" : "Auth Server"
+        }
+
+        ,
+        {
+            "title" : "It returns the IP address: 93.184.216.34",
+            "diagramState" : "ip-address",
+            "focus" : "IP Address",
+            "focusPath" : ["Auth Server", "IP Address"]
+        }
+
+        ,
+        {
+            "title" : "The IP address travels back through the DNS Resolver to your browser.",
+            "diagramState" : "ip-returned",
+            "focus" : "IP Address",
+            "focusPath" : ["IP Address", "DNS Resolver"]
+        }
+
+        ,
+        {
+            "title" : "Now your browser knows the IP address of example.com.",
+            "diagramState" : "browser-gets-ip",
+            "focus" : ["Web Browser", "IP Address"],
+            "focusPath" : ["IP Address", "Web Browser"]
+        }
+
+        ,
+        {
+            "title" : "Your browser can now connect directly to the web server at that IP address.",
+            "diagramState" : "web-server",
+            "focus" : "Web Server",
+            "focusPath" : ["Laptop", "Internet", "Web Server"]
+        }
+
+        ,
+        {
+            "title" : "The web server sends back the website content (HTML, images, etc.).",
+            "diagramState" : "full-connection",
+            "focus" : "HTML",
+            "focusPath" : ["Web Server", "HTML"]
+        }
+
+        ,
+        {
+            "title" : "This whole DNS lookup process happens in milliseconds!",
+            "diagramState" : "full-connection",
+            "focus" : ["You", "Web Browser", "Laptop", "Internet", "Web Server"]
+        }
+
+        ,
+        {
+            "title" : "To speed things up, DNS Resolvers cache (remember) IP addresses for a while.",
+            "diagramState" : "cache",
+            "focus" : "Cache",
+            "focusPath" : ["DNS Resolver", "Cache"]
+        }
+
+        ,
+        {
+            "title" : "Next time you visit example.com, the resolver can skip asking all those servers.",
+            "diagramState" : "cache",
+            "focus" : ["DNS Resolver", "Cache"]
+        }
+
+        ,
+        {
+            "title" : "That's DNS - the Internet's phonebook that translates names to numbers!",
+            "diagramState" : "cache",
+            "focus" : ["You"]
+        }
+    ]
+}

@@ -1,0 +1,307 @@
+{
+    "states": [
+        {
+            "diagramState" : "start",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "icon" : "user-2",
+                            "id" : "You"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200]
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "browser",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Web Browser",
+                            "icon" : "web-browser",
+                            "from" : "You"
+                        }
+                        ,
+                        {
+                            "id" : "Laptop",
+                            "icon" : "laptop",
+                            "from" : "You"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "Web Browser" : [200, 200],
+                "Laptop" : [300, 200]
+            },
+            "connections" : {
+                "You" : "Web Browser",
+                "Web Browser" : "Laptop"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "type-url",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "example.com",
+                            "icon" : "document",
+                            "from" : "Web Browser"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "example.com" : [200, 50]
+            },
+            "connections" : {
+                "example.com" : "Web Browser"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "dns-resolver",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Internet",
+                            "icon" : "wifi-high",
+                            "from" : "Laptop"
+                        }
+                        ,
+                        {
+                            "id" : "DNS Resolver",
+                            "icon" : "software",
+                            "from" : "Internet"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "Internet" : [450, 200],
+                "DNS Resolver" : [600, 200]
+            },
+            "connections" : {
+                "Laptop" : "Internet",
+                "Internet" : "DNS Resolver"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "root-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Root Server",
+                            "icon" : "server2",
+                            "from" : "DNS Resolver"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "Root Server" : [750, 50]
+            },
+            "connections" : {
+                "DNS Resolver" : "Root Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "tld-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "TLD Server",
+                            "name" : ".com Server",
+                            "icon" : "server2",
+                            "from" : "Root Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "TLD Server" : [750, 200]
+            },
+            "connections" : {
+                "Root Server" : "TLD Server",
+                "DNS Resolver" : ["Root Server", "TLD Server"]
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "auth-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Auth Server",
+                            "name" : "example.com Server",
+                            "icon" : "server2",
+                            "from" : "TLD Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "Auth Server" : [750, 350]
+            },
+            "connections" : {
+                "TLD Server" : "Auth Server",
+                "DNS Resolver" : ["Root Server", "TLD Server", "Auth Server"]
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "ip-address",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "IP Address",
+                            "name" : "93.184.216.34",
+                            "icon" : "document",
+                            "from" : "Auth Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "IP Address" : [900, 350]
+            },
+            "connections" : {
+                "Auth Server" : "IP Address"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "ip-returned",
+            "actions" : [
+                {
+                    "method" : "remove",
+                    "items" : [
+                        { "id" : "Root Server" },
+                        { "id" : "TLD Server" },
+                        { "id" : "Auth Server" }
+                    ]
+                }
+            ],
+            "positions" : {
+                "IP Address" : [600, 50]
+            },
+            "connections" : {
+                "DNS Resolver" : [],
+                "IP Address" : "DNS Resolver"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "browser-gets-ip",
+            "actions" : [],
+            "positions" : {
+                "IP Address" : [200, 350]
+            },
+            "connections" : {
+                "IP Address" : "Web Browser"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "web-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Web Server",
+                            "icon" : "server2",
+                            "from" : "Internet"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "Web Server" : [600, 200],
+                "DNS Resolver" : [600, 350]
+            },
+            "connections" : {
+                "Internet" : "Web Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "full-connection",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "HTML",
+                            "icon" : "document-html",
+                            "from" : "Web Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "HTML" : [750, 200]
+            },
+            "connections" : {
+                "Web Server" : "HTML"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "cache",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Cache",
+                            "icon" : "database",
+                            "from" : "DNS Resolver"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "Cache" : [700, 350]
+            },
+            "connections" : {
+                "DNS Resolver" : "Cache"
+            }
+        }
+    ]
+}
