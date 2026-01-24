@@ -217,7 +217,6 @@
                 "IP Address" : [600, 50]
             },
             "connections" : {
-                "DNS Resolver" : [],
                 "IP Address" : "DNS Resolver"
             }
         }
@@ -225,7 +224,14 @@
         ,
         {
             "diagramState" : "browser-gets-ip",
-            "actions" : [],
+            "actions" : [
+                {
+                    "method" : "remove",
+                    "items" : [
+                        { "id" : "example.com" }
+                    ]
+                }
+            ],
             "positions" : {
                 "IP Address" : [200, 350]
             },
@@ -254,6 +260,7 @@
                 "DNS Resolver" : [600, 350]
             },
             "connections" : {
+                "Laptop" : "Internet",
                 "Internet" : "Web Server"
             }
         }
@@ -289,18 +296,26 @@
                     "method" : "add",
                     "items" : [
                         {
-                            "id" : "Cache",
+                            "id" : "Browser Cache",
                             "icon" : "database",
-                            "from" : "DNS Resolver"
+                            "from" : "Web Browser"
+                        }
+                        ,
+                        {
+                            "id" : "OS Cache",
+                            "icon" : "database",
+                            "from" : "Laptop"
                         }
                     ]
                 }
             ],
             "positions" : {
-                "Cache" : [700, 350]
+                "Browser Cache" : [200, 50],
+                "OS Cache" : [300, 50]
             },
             "connections" : {
-                "DNS Resolver" : "Cache"
+                "Web Browser" : "Browser Cache",
+                "Laptop" : "OS Cache"
             }
         }
     ]

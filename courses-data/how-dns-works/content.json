@@ -143,17 +143,24 @@
 
         ,
         {
-            "title" : "To speed things up, DNS Resolvers cache (remember) IP addresses for a while.",
+            "title" : "To speed things up, your browser and operating system cache (remember) IP addresses.",
             "diagramState" : "cache",
-            "focus" : "Cache",
-            "focusPath" : ["DNS Resolver", "Cache"]
+            "focus" : ["Browser Cache", "OS Cache"]
         }
 
         ,
         {
-            "title" : "Next time you visit example.com, the resolver can skip asking all those servers.",
+            "title" : "Next time you visit example.com, your computer checks the cache first before asking the DNS Resolver.",
             "diagramState" : "cache",
-            "focus" : ["DNS Resolver", "Cache"]
+            "focus" : ["Browser Cache", "OS Cache"],
+            "focusPath" : ["Web Browser", "Browser Cache"]
+        }
+
+        ,
+        {
+            "title" : "If the IP is cached locally, the DNS lookup is skipped entirely - making it much faster!",
+            "diagramState" : "cache",
+            "focus" : ["Browser Cache", "OS Cache", "Laptop"]
         }
 
         ,
