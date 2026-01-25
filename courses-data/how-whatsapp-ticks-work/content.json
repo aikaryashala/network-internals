@@ -7,23 +7,213 @@
         }
         ,
         {
-            "title" : "You send a message through WhatsApp App",
+            "title" : "You open WhatsApp on your phone.",
             "diagramState" : "whatsapp-app",
-            "focus" : "WhatsApp App"
+            "focus" : "Your Phone",
+            "focusPath" : ["You", "Your Phone"]
         }
         ,
         {
-            "title" : "The message is sent to other computers called servers.",
-            "diagramState" : "server",
-            "focus" : "Server",
-            "focusPath" : ["WhatsApp App", "Server"]
+            "title" : "You type a message to your friend and tap send.",
+            "diagramState" : "message-typed",
+            "focus" : "Message",
+            "focusPath" : ["You", "Your Phone", "Message"]
         }
         ,
         {
-            "title" : "Server sends to your friends mobile.",
-            "diagramState" : "server-to-mobile",
+            "title" : "What if your phone has no internet connection?",
+            "diagramState" : "no-internet",
+            "focus" : "Your Phone"
+        }
+        ,
+        {
+            "title" : "A clock icon appears - your message is waiting to be sent.",
+            "diagramState" : "clock-waiting",
+            "focus" : "Clock"
+        }
+        ,
+        {
+            "title" : "The clock means: Message queued, waiting for internet connection.",
+            "diagramState" : "clock-waiting",
+            "focus" : "Clock"
+        }
+        ,
+        {
+            "title" : "When your phone connects to the internet, the message is sent.",
+            "diagramState" : "message-to-server",
+            "focus" : "WhatsApp Server",
+            "focusPath" : ["Your Phone", "Internet", "WhatsApp Server"]
+        }
+        ,
+        {
+            "title" : "The server receives your message and stores it.",
+            "diagramState" : "message-to-server",
+            "focus" : "WhatsApp Server"
+        }
+        ,
+        {
+            "title" : "The server sends an acknowledgment (ACK) back to your phone.",
+            "diagramState" : "server-ack",
+            "focus" : "ACK",
+            "focusPath" : ["WhatsApp Server", "Internet", "Your Phone"]
+        }
+        ,
+        {
+            "title" : "When your phone receives this ACK, a single grey tick appears!",
+            "diagramState" : "single-tick",
+            "focus" : "Single Tick"
+        }
+        ,
+        {
+            "title" : "One tick means: Message sent to server successfully.",
+            "diagramState" : "single-tick",
+            "focus" : "Single Tick"
+        }
+        ,
+        {
+            "title" : "Now the server looks for your friend's phone and sends the message.",
+            "diagramState" : "message-to-friend",
             "focus" : "Friends Phone",
-            "focusPath" : ["Server", "Friends Phone"]
+            "focusPath" : ["WhatsApp Server", "Internet", "Friends Phone"]
+        }
+        ,
+        {
+            "title" : "Your friend's phone receives the message.",
+            "diagramState" : "message-to-friend",
+            "focus" : ["Friends Phone", "Friend"]
+        }
+        ,
+        {
+            "title" : "Your friend's phone sends a delivery ACK back to the server.",
+            "diagramState" : "delivery-ack-to-server",
+            "focus" : "Delivery ACK",
+            "focusPath" : ["Friends Phone", "Internet", "WhatsApp Server"]
+        }
+        ,
+        {
+            "title" : "The server forwards this delivery ACK to your phone.",
+            "diagramState" : "delivery-ack-to-sender",
+            "focus" : "Delivery ACK",
+            "focusPath" : ["WhatsApp Server", "Internet", "Your Phone"]
+        }
+        ,
+        {
+            "title" : "When your phone receives the delivery ACK, two grey ticks appear!",
+            "diagramState" : "double-grey-tick",
+            "focus" : "Double Grey Ticks"
+        }
+        ,
+        {
+            "title" : "Two grey ticks mean: Message delivered to your friend's phone.",
+            "diagramState" : "double-grey-tick",
+            "focus" : "Double Grey Ticks"
+        }
+        ,
+        {
+            "title" : "But your friend hasn't opened the message yet...",
+            "diagramState" : "double-grey-tick",
+            "focus" : ["Friends Phone", "Friend"]
+        }
+        ,
+        {
+            "title" : "Your friend opens WhatsApp and reads your message.",
+            "diagramState" : "friend-reads",
+            "focus" : "Friend",
+            "focusPath" : ["Friend", "Friends Phone"]
+        }
+        ,
+        {
+            "title" : "Your friend's phone sends a read receipt back to the server.",
+            "diagramState" : "read-ack-to-server",
+            "focus" : "Read ACK",
+            "focusPath" : ["Friends Phone", "Internet", "WhatsApp Server"]
+        }
+        ,
+        {
+            "title" : "The server forwards the read receipt to your phone.",
+            "diagramState" : "read-ack-to-sender",
+            "focus" : "Read ACK",
+            "focusPath" : ["WhatsApp Server", "Internet", "Your Phone"]
+        }
+        ,
+        {
+            "title" : "When your phone receives the read receipt, the ticks turn blue!",
+            "diagramState" : "double-blue-tick",
+            "focus" : "Double Blue Ticks"
+        }
+        ,
+        {
+            "title" : "Two blue ticks mean: Message has been read by your friend.",
+            "diagramState" : "double-blue-tick",
+            "focus" : "Double Blue Ticks"
+        }
+        ,
+        {
+            "title" : "What happens if your friend's phone is offline?",
+            "diagramState" : "friend-offline",
+            "focus" : "Friends Phone",
+            "disable" : ["Friends Phone"]
+        }
+        ,
+        {
+            "title" : "The server cannot deliver the message, so no delivery ACK is sent.",
+            "diagramState" : "friend-offline",
+            "focus" : "WhatsApp Server"
+        }
+        ,
+        {
+            "title" : "You will only see one tick while waiting for delivery.",
+            "diagramState" : "friend-offline",
+            "focus" : "Single Tick"
+        }
+        ,
+        {
+            "title" : "When your friend's phone reconnects, the message is delivered and the ACK flows back.",
+            "diagramState" : "friend-online-delivery",
+            "focus" : ["Friends Phone", "Delivery ACK"],
+            "focusPath" : ["Friends Phone", "Internet", "WhatsApp Server", "Internet", "Your Phone"]
+        }
+        ,
+        {
+            "title" : "Now you see two grey ticks - delivered!",
+            "diagramState" : "delivered-after-offline",
+            "focus" : "Double Grey Ticks"
+        }
+        ,
+        {
+            "title" : "Let's recap the tick system:",
+            "diagramState" : "recap",
+            "focus" : ["Clock", "Single Tick", "Double Grey Ticks", "Double Blue Ticks"]
+        }
+        ,
+        {
+            "title" : "Clock icon = Message waiting (no internet)",
+            "diagramState" : "recap",
+            "focus" : "Clock"
+        }
+        ,
+        {
+            "title" : "One grey tick = Server ACK received (message sent)",
+            "diagramState" : "recap",
+            "focus" : "Single Tick"
+        }
+        ,
+        {
+            "title" : "Two grey ticks = Delivery ACK received (message delivered)",
+            "diagramState" : "recap",
+            "focus" : "Double Grey Ticks"
+        }
+        ,
+        {
+            "title" : "Two blue ticks = Read receipt received (message read)",
+            "diagramState" : "recap",
+            "focus" : "Double Blue Ticks"
+        }
+        ,
+        {
+            "title" : "That's how WhatsApp ticks keep you informed about your message status!",
+            "diagramState" : "recap",
+            "focus" : "You"
         }
     ]
 }

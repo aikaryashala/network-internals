@@ -12,10 +12,9 @@
                         }
                     ]
                 }
-            ]
-            ,
+            ],
             "positions" : {
-                "You" : [400, 200]
+                "You" : [100, 200]
             }
         }
 
@@ -27,63 +26,229 @@
                     "method" : "add",
                     "items" : [
                         {
-                            "id" : "WhatsApp App",
+                            "id" : "Your Phone",
                             "icon" : "iphone",
                             "from" : "You"
                         }
                     ]
                 }
-            ]
-            ,
+            ],
             "positions" : {
-                "WhatsApp App" : [500, 200]
-            }
-            ,
+                "You" : [100, 200],
+                "Your Phone" : [200, 200]
+            },
             "connections" : {
-                "You" : "WhatsApp App"
+                "You" : "Your Phone"
             }
         }
+
         ,
         {
-            "diagramState" : "server",
+            "diagramState" : "message-typed",
             "actions" : [
                 {
                     "method" : "add",
                     "items" : [
                         {
-                            "icon" : "server2",
-                            "id" : "Server",
-                            "from" : "WhatsApp App"
+                            "id" : "Message",
+                            "icon" : "document",
+                            "from" : "Your Phone"
                         }
                     ]
                 }
-            ]
-            ,
+            ],
             "positions" : {
-                "You" : [200, 200],
-                "WhatsApp App" : [300, 200],
-
-                "Server" : [500, 0]
-            }
-            ,
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Message" : [300, 200]
+            },
             "connections" : {
-                "You" : "WhatsApp App",
-                "WhatsApp App" : "Server"
+                "You" : "Your Phone",
+                "Your Phone" : "Message"
             }
         }
+
         ,
         {
-            "diagramState" : "server-to-mobile",
+            "diagramState" : "no-internet",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "No Internet",
+                            "icon" : "cross-out",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Message" : [300, 200],
+                "No Internet" : [400, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Message"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "clock-waiting",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Clock",
+                            "icon" : "clock",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Message" : [300, 200],
+                "No Internet" : [400, 200],
+                "Clock" : [200, 300]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Message"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "message-to-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Internet",
+                            "icon" : "wifi-high",
+                            "from" : "Your Phone"
+                        },
+                        {
+                            "id" : "WhatsApp Server",
+                            "icon" : "server2",
+                            "from" : "Internet"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "Message"
+                        },
+                        {
+                            "id" : "No Internet"
+                        },
+                        {
+                            "id" : "Clock"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : "WhatsApp Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "server-ack",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "ACK",
+                            "icon" : "checkmark",
+                            "from" : "WhatsApp Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 200],
+                "ACK" : [300, 100]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "ACK" : "Your Phone"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "single-tick",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Single Tick",
+                            "icon" : "checkmark",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "ACK"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 200],
+                "Single Tick" : [200, 300]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : "WhatsApp Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "message-to-friend",
             "actions" : [
                 {
                     "method" : "add",
                     "items" : [
                         {
                             "id" : "Friends Phone",
-                            "icon": "iphone",
-                            "from" : "Server"
-                        }
-                        ,
+                            "icon" : "iphone",
+                            "from" : "Internet"
+                        },
                         {
                             "id" : "Friend",
                             "icon" : "girl",
@@ -91,19 +256,448 @@
                         }
                     ]
                 }
-            ]
-            ,
+            ],
             "positions" : {
-
-                "Friends Phone": [700, 200],
-                "Friend": [800, 200]
-            }
-            ,
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Single Tick" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200]
+            },
             "connections" : {
-                "You": "WhatsApp App",
-                "WhatsApp App": "Server",
-                "Server": "Friends Phone",
-                "Friends Phone": "Friend"
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "delivery-ack-to-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Delivery ACK",
+                            "icon" : "checkmarks",
+                            "from" : "Friends Phone"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Single Tick" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200],
+                "Delivery ACK" : [500, 150]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Friends Phone" : "Friend",
+                "Delivery ACK" : "WhatsApp Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "delivery-ack-to-sender",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Delivery ACK Forward",
+                            "icon" : "checkmarks",
+                            "from" : "WhatsApp Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Single Tick" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200],
+                "Delivery ACK" : [500, 150],
+                "Delivery ACK Forward" : [300, 150]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Friends Phone" : "Friend",
+                "Delivery ACK Forward" : "Your Phone"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "double-grey-tick",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Double Grey Ticks",
+                            "icon" : "checkmarks",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "Single Tick"
+                        },
+                        {
+                            "id" : "Delivery ACK"
+                        },
+                        {
+                            "id" : "Delivery ACK Forward"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Double Grey Ticks" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "friend-reads",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Message Read",
+                            "icon" : "document",
+                            "from" : "Friends Phone"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Double Grey Ticks" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200],
+                "Message Read" : [650, 150]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend",
+                "Message Read" : "Friend"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "read-ack-to-server",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Read ACK",
+                            "icon" : "checkmarks-blue",
+                            "from" : "Friends Phone"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "Message Read"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Double Grey Ticks" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200],
+                "Read ACK" : [500, 150]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Friends Phone" : "Friend",
+                "Read ACK" : "WhatsApp Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "read-ack-to-sender",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Read ACK Forward",
+                            "icon" : "checkmarks-blue",
+                            "from" : "WhatsApp Server"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Double Grey Ticks" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200],
+                "Read ACK" : [500, 150],
+                "Read ACK Forward" : [300, 150]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Friends Phone" : "Friend",
+                "Read ACK Forward" : "Your Phone"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "double-blue-tick",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Double Blue Ticks",
+                            "icon" : "checkmarks-blue",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "Double Grey Ticks"
+                        },
+                        {
+                            "id" : "Read ACK"
+                        },
+                        {
+                            "id" : "Read ACK Forward"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Double Blue Ticks" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "friend-offline",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Single Tick",
+                            "icon" : "checkmark",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "Double Blue Ticks"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Single Tick" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : "WhatsApp Server"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "friend-online-delivery",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Delivery ACK",
+                            "icon" : "checkmarks",
+                            "from" : "Friends Phone"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Single Tick" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200],
+                "Delivery ACK" : [300, 150]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend",
+                "Delivery ACK" : "Your Phone"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "delivered-after-offline",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Double Grey Ticks",
+                            "icon" : "checkmarks",
+                            "from" : "Your Phone"
+                        }
+                    ]
+                }
+                ,
+                {
+                    "method" : "remove",
+                    "items" : [
+                        {
+                            "id" : "Single Tick"
+                        },
+                        {
+                            "id" : "Delivery ACK"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Double Grey Ticks" : [200, 300],
+                "Friends Phone" : [600, 200],
+                "Friend" : [700, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend"
+            }
+        }
+
+        ,
+        {
+            "diagramState" : "recap",
+            "actions" : [
+                {
+                    "method" : "add",
+                    "items" : [
+                        {
+                            "id" : "Clock",
+                            "icon" : "clock"
+                        },
+                        {
+                            "id" : "Single Tick",
+                            "icon" : "checkmark"
+                        },
+                        {
+                            "id" : "Double Blue Ticks",
+                            "icon" : "checkmarks-blue"
+                        }
+                    ]
+                }
+            ],
+            "positions" : {
+                "You" : [100, 200],
+                "Your Phone" : [200, 200],
+                "Internet" : [400, 200],
+                "WhatsApp Server" : [550, 100],
+                "Clock" : [150, 350],
+                "Single Tick" : [300, 350],
+                "Double Grey Ticks" : [450, 350],
+                "Double Blue Ticks" : [600, 350],
+                "Friends Phone" : [650, 200],
+                "Friend" : [750, 200]
+            },
+            "connections" : {
+                "You" : "Your Phone",
+                "Your Phone" : "Internet",
+                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Friends Phone" : "Friend"
             }
         }
     ]
