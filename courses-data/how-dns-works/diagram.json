@@ -146,7 +146,6 @@
                 "TLD Server" : [750, 200]
             },
             "connections" : {
-                "Root Server" : "TLD Server",
                 "DNS Resolver" : ["Root Server", "TLD Server"]
             }
         }
@@ -171,7 +170,6 @@
                 "Auth Server" : [750, 350]
             },
             "connections" : {
-                "TLD Server" : "Auth Server",
                 "DNS Resolver" : ["Root Server", "TLD Server", "Auth Server"]
             }
         }

@@ -66,10 +66,17 @@
 
         ,
         {
-            "title" : "The Root Server directs the resolver to a TLD (Top-Level Domain) Server that handles .com addresses.",
+            "title" : "The Root Server tells the Resolver: 'Try the .com TLD Server.'",
+            "diagramState" : "root-server",
+            "focusPath" : ["Root Server", "DNS Resolver"]
+        }
+
+        ,
+        {
+            "title" : "The Resolver now asks the .com TLD (Top-Level Domain) Server.",
             "diagramState" : "tld-server",
             "focus" : "TLD Server",
-            "focusPath" : ["Root Server", "TLD Server"]
+            "focusPath" : ["DNS Resolver", "TLD Server"]
         }
 
         ,
@@ -81,10 +88,17 @@
 
         ,
         {
-            "title" : "The TLD Server points to the Authoritative Name Server for example.com.",
+            "title" : "The TLD Server tells the Resolver: 'Ask the example.com Authoritative Server.'",
+            "diagramState" : "tld-server",
+            "focusPath" : ["TLD Server", "DNS Resolver"]
+        }
+
+        ,
+        {
+            "title" : "The Resolver now asks the Authoritative Name Server for example.com.",
             "diagramState" : "auth-server",
             "focus" : "Auth Server",
-            "focusPath" : ["TLD Server", "Auth Server"]
+            "focusPath" : ["DNS Resolver", "Auth Server"]
         }
 
         ,
