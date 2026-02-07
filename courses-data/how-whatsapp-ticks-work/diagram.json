@@ -245,9 +245,14 @@
                     "method" : "add",
                     "items" : [
                         {
+                            "id" : "Friend's WiFi",
+                            "icon" : "wifi-high",
+                            "from" : "WhatsApp Server"
+                        },
+                        {
                             "id" : "Friends Phone",
                             "icon" : "iphone",
-                            "from" : "Internet"
+                            "from" : "Friend's WiFi"
                         },
                         {
                             "id" : "Friend",
@@ -263,13 +268,16 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Single Tick" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend"
             }
         }
@@ -295,12 +303,14 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Single Tick" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200],
-                "Delivery ACK" : [500, 150]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200],
+                "Delivery ACK" : [600, 100]
             },
             "connections" : {
                 "You" : "Your Phone",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend",
                 "Delivery ACK" : "WhatsApp Server"
             }
@@ -327,13 +337,15 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Single Tick" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200],
-                "Delivery ACK" : [500, 150],
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200],
+                "Delivery ACK" : [600, 100],
                 "Delivery ACK Forward" : [300, 150]
             },
             "connections" : {
                 "You" : "Your Phone",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend",
                 "Delivery ACK Forward" : "Your Phone"
             }
@@ -375,13 +387,16 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Double Grey Ticks" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend"
             }
         }
@@ -407,14 +422,17 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Double Grey Ticks" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200],
-                "Message Read" : [650, 150]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200],
+                "Message Read" : [800, 150]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend",
                 "Message Read" : "Friend"
             }
@@ -450,12 +468,14 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Double Grey Ticks" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200],
-                "Read ACK" : [500, 150]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200],
+                "Read ACK" : [600, 100]
             },
             "connections" : {
                 "You" : "Your Phone",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend",
                 "Read ACK" : "WhatsApp Server"
             }
@@ -482,13 +502,15 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Double Grey Ticks" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200],
-                "Read ACK" : [500, 150],
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200],
+                "Read ACK" : [600, 100],
                 "Read ACK Forward" : [300, 150]
             },
             "connections" : {
                 "You" : "Your Phone",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend",
                 "Read ACK Forward" : "Your Phone"
             }
@@ -530,13 +552,16 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Double Blue Ticks" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend"
             }
         }
@@ -571,8 +596,9 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Single Tick" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200]
             },
             "connections" : {
                 "You" : "Your Phone",
@@ -602,14 +628,17 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Single Tick" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200],
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200],
                 "Delivery ACK" : [300, 150]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend",
                 "Delivery ACK" : "Your Phone"
             }
@@ -648,13 +677,16 @@
                 "Internet" : [400, 200],
                 "WhatsApp Server" : [550, 100],
                 "Double Grey Ticks" : [200, 300],
-                "Friends Phone" : [600, 200],
-                "Friend" : [700, 200]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend"
             }
         }
@@ -690,13 +722,16 @@
                 "Single Tick" : [300, 350],
                 "Double Grey Ticks" : [450, 350],
                 "Double Blue Ticks" : [600, 350],
-                "Friends Phone" : [650, 200],
-                "Friend" : [750, 200]
+                "Friend's WiFi" : [650, 200],
+                "Friends Phone" : [750, 200],
+                "Friend" : [850, 200]
             },
             "connections" : {
                 "You" : "Your Phone",
                 "Your Phone" : "Internet",
-                "Internet" : ["WhatsApp Server", "Friends Phone"],
+                "Internet" : "WhatsApp Server",
+                "WhatsApp Server" : "Friend's WiFi",
+                "Friend's WiFi" : "Friends Phone",
                 "Friends Phone" : "Friend"
             }
         }

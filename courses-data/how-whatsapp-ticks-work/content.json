@@ -74,7 +74,7 @@
             "title" : "Now the server looks for your friend's phone and sends the message.",
             "diagramState" : "message-to-friend",
             "focus" : "Friends Phone",
-            "focusPath" : ["WhatsApp Server", "Internet", "Friends Phone"]
+            "focusPath" : ["WhatsApp Server", "Friend's WiFi", "Friends Phone"]
         }
         ,
         {
@@ -87,7 +87,7 @@
             "title" : "Your friend's phone sends a delivery ACK back to the server.",
             "diagramState" : "delivery-ack-to-server",
             "focus" : "Delivery ACK",
-            "focusPath" : ["Friends Phone", "Internet", "WhatsApp Server"]
+            "focusPath" : ["Friends Phone", "Friend's WiFi", "WhatsApp Server"]
         }
         ,
         {
@@ -126,7 +126,7 @@
             "title" : "Your friend's phone sends a read receipt back to the server.",
             "diagramState" : "read-ack-to-server",
             "focus" : "Read ACK",
-            "focusPath" : ["Friends Phone", "Internet", "WhatsApp Server"]
+            "focusPath" : ["Friends Phone", "Friend's WiFi", "WhatsApp Server"]
         }
         ,
         {
@@ -171,7 +171,7 @@
             "title" : "When your friend's phone reconnects, the message is delivered and the ACK flows back.",
             "diagramState" : "friend-online-delivery",
             "focus" : ["Friends Phone", "Delivery ACK"],
-            "focusPath" : ["Friends Phone", "Internet", "WhatsApp Server", "Internet", "Your Phone"]
+            "focusPath" : ["Friends Phone", "Friend's WiFi", "WhatsApp Server", "Internet", "Your Phone"]
         }
         ,
         {
