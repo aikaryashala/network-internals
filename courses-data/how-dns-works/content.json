@@ -15,23 +15,23 @@
 
         ,
         {
-            "title" : "You type a website address like example.com into the browser.",
+            "title" : "You type a website address like aikaryashala.com into the browser.",
             "diagramState" : "type-url",
-            "focus" : "example.com"
+            "focus" : "aikaryashala.com"
         }
 
         ,
         {
             "title" : "But computers don't understand domain names. They need IP addresses - numbers like 93.184.216.34.",
             "diagramState" : "type-url",
-            "focus" : "example.com"
+            "focus" : "aikaryashala.com"
         }
 
         ,
         {
             "title" : "DNS (Domain Name System) translates domain names to IP addresses. It's like a phonebook for the Internet.",
             "diagramState" : "type-url",
-            "focus" : ["Web Browser", "example.com"]
+            "focus" : ["Web Browser", "aikaryashala.com"]
         }
 
         ,
@@ -81,21 +81,21 @@
 
         ,
         {
-            "title" : "The .com TLD Server knows which server is authoritative for example.com.",
+            "title" : "The .com TLD Server knows which server is authoritative for aikaryashala.com.",
             "diagramState" : "tld-server",
             "focus" : "TLD Server"
         }
 
         ,
         {
-            "title" : "The TLD Server tells the Resolver: 'Ask the example.com Authoritative Server.'",
+            "title" : "The TLD Server tells the Resolver: 'Ask the aikaryashala.com Authoritative Server.'",
             "diagramState" : "tld-server",
             "focusPath" : ["TLD Server", "DNS Resolver"]
         }
 
         ,
         {
-            "title" : "The Resolver now asks the Authoritative Name Server for example.com.",
+            "title" : "The Resolver now asks the Authoritative Name Server for aikaryashala.com.",
             "diagramState" : "auth-server",
             "focus" : "Auth Server",
             "focusPath" : ["DNS Resolver", "Auth Server"]
@@ -103,7 +103,7 @@
 
         ,
         {
-            "title" : "The Authoritative Server has the actual DNS records for example.com.",
+            "title" : "The Authoritative Server has the actual DNS records for aikaryashala.com.",
             "diagramState" : "auth-server",
             "focus" : "Auth Server"
         }
@@ -126,7 +126,7 @@
 
         ,
         {
-            "title" : "Now your browser knows the IP address of example.com.",
+            "title" : "Now your browser knows the IP address of aikaryashala.com.",
             "diagramState" : "browser-gets-ip",
             "focus" : ["Web Browser", "IP Address"],
             "focusPath" : ["IP Address", "Web Browser"]
@@ -164,7 +164,7 @@
 
         ,
         {
-            "title" : "Next time you visit example.com, your computer checks the cache first before asking the DNS Resolver.",
+            "title" : "Next time you visit aikaryashala.com, your computer checks the cache first before asking the DNS Resolver.",
             "diagramState" : "cache",
             "focus" : ["Browser Cache", "OS Cache"],
             "focusPath" : ["Web Browser", "Browser Cache"]

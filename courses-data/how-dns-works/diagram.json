@@ -57,7 +57,7 @@
                     "method" : "add",
                     "items" : [
                         {
-                            "id" : "example.com",
+                            "id" : "aikaryashala.com",
                             "icon" : "document",
                             "from" : "Web Browser"
                         }
@@ -65,10 +65,10 @@
                 }
             ],
             "positions" : {
-                "example.com" : [200, 50]
+                "aikaryashala.com" : [200, 50]
             },
             "connections" : {
-                "example.com" : "Web Browser"
+                "aikaryashala.com" : "Web Browser"
             }
         }
 
@@ -159,7 +159,7 @@
                     "items" : [
                         {
                             "id" : "Auth Server",
-                            "name" : "example.com Server",
+                            "name" : "aikaryashala.com Server",
                             "icon" : "server2",
                             "from" : "TLD Server"
                         }
@@ -226,7 +226,7 @@
                 {
                     "method" : "remove",
                     "items" : [
-                        { "id" : "example.com" }
+                        { "id" : "aikaryashala.com" }
                     ]
                 }
             ],
